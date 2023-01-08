@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css";
+import FilterData from "./Component/FilterData";
+import TabSelector from "./Component/TabFilter";
+import data from "./utils";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Header from "./Component/Header";
+import Navbar from "./Component/Navbar";
+import Modal from "@netojose/react-modal";
 
-function App() {
+export default function App() {
+  const [alldata, setAllData] = useState();
+ 
+
+  useEffect(() => {
+    axios
+      .get("https://dummyjson.com/products")
+      .then((res) => {
+        setAllData(res.data.products);
+      })
+      .catch((e) => {
+        console.warn(e);
+      });
+  }, []);
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <TabSelector /> */}
+      <Navbar />
+      <div className="table-conatinet-data">
+        <Header />
+        <FilterData data={alldata && alldata} />
+      </div>
     </div>
   );
 }
-
-export default App;
