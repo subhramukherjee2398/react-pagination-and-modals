@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { useSortableData } from "./hooks";
 import ReactPaginate from "react-paginate";
 import styles from "./DataTable.module.scss";
+import Modal from "@netojose/react-modal";
+import "./datastyle.css";
 
-const ProductTable = ({ data, openModal }) => {
+const ProductTable = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(0); //Pagination
-  console.log(data)
+  const [isOpen, setIsOpen] = useState(false);
+
   const items = data;
 
   // Pagination
@@ -15,6 +18,15 @@ const ProductTable = ({ data, openModal }) => {
     setCurrentPage(selectedPage);
   }
   const offset = currentPage * PER_PAGE;
+
+  const ProductDetails = (data) => {
+    console.log(data);
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   return (
     <>
@@ -75,7 +87,7 @@ const ProductTable = ({ data, openModal }) => {
                 <td className={styles.tabledata}>{item.category}</td>
                 <td
                   className={styles.tabledata}
-                  onClick={() => alert(item.formname)}
+                  onClick={() => ProductDetails(item)}
                 >
                   <button>Edit</button>
                 </td>
@@ -104,6 +116,9 @@ const ProductTable = ({ data, openModal }) => {
             entries
           </span>
         </div>
+        <Modal isOpen={isOpen} onRequestClose={closeModal}>
+          <ProductDetails />
+        </Modal>
       </div>
     </>
   );
