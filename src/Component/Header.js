@@ -4,11 +4,13 @@ import "../styles.css";
 const Header = () => {
   return (
     <div className="hedaer">
-      <div>Product list</div>
+      <div>
+        <h1>Product List</h1>
+      </div>
       <div className="header-btn">
-        <button>Add product</button>
-        <button>Import</button>
-        <button>Export to Excel</button>
+        <div className="hd-btn">Add product</div>
+        <div className="hd-btn">Import</div>
+        <div className="hd-btn">Export to Excel</div>
       </div>
     </div>
   );

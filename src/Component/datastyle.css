@@ -1,3 +1,13 @@
 .ReactModal__Modal{
-    inset: 100px !important;
+    inset: 150px !important;
+    padding: 10px !important;
+}
+.edit{
+    background-color: #1C7293;
+    padding: 5%;
+    border-radius: 7px;
+    outline: none;
+    width: 70px;
+    border: none;
+    color: white;
 }

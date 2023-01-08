@@ -27,7 +27,6 @@ export default function App() {
 
   return (
     <div className="App">
-      {/* <TabSelector /> */}
       <Navbar />
       <div className="table-conatinet-data">
         <Header />

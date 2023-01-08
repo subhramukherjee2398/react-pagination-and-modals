@@ -12,8 +12,9 @@
   height:60px;
 }
 .thformname{
-  background-color: #47596d;
+  background-color: #9c9a98;
   // border-right:1px solid #fff
+  color: white;
 }
 .thcategory{
   background-color: #758391;
@@ -98,8 +99,8 @@
 .paginationActive {
   & a {
     color: #505050;
-    border: 1px solid #cacaca;
-    background: linear-gradient(to bottom,#fff 0,#eaeaea 100%);
+    border: 2px solid #cacaca;
+    background: linear-gradient(109.6deg, rgb(112, 255, 203) 11.2%, rgb(137, 230, 129) 91.7%);
   }
 }
 

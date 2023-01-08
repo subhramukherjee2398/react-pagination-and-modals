@@ -4,10 +4,12 @@ import ReactPaginate from "react-paginate";
 import styles from "./DataTable.module.scss";
 import Modal from "@netojose/react-modal";
 import "./datastyle.css";
+import Product from "./ProductDetails";
 
 const ProductTable = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(0); //Pagination
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedProduct,setSelectedProduct] = useState()
 
   const items = data;
 
@@ -20,8 +22,8 @@ const ProductTable = ({ data }) => {
   const offset = currentPage * PER_PAGE;
 
   const ProductDetails = (data) => {
-    console.log(data);
     setIsOpen(true);
+    setSelectedProduct(data)
   };
 
   const closeModal = () => {
@@ -34,40 +36,24 @@ const ProductTable = ({ data }) => {
         <thead className={styles.datatablethead}>
           <tr>
             <th className={styles.thformname}>
-              <button
-                type="button"
-                //onClick={() => requestSort("formname")}
-                //className={`${styles.theadbtn} ${getClassNamesFor("formname")}`}
-              >
+              
                 Product
-              </button>
+             
             </th>
             <th className={styles.thformname}>
-              <button
-                type="button"
-                //onClick={() => requestSort("formname")}
-                //className={`${styles.theadbtn} ${getClassNamesFor("formname")}`}
-              >
+              
                 Brand
-              </button>
+              
             </th>
             <th className={styles.thformname}>
-              <button
-                type="button"
-                // onClick={() => requestSort("category")}
-                // className={`${styles.theadbtn} ${getClassNamesFor("category")}`}
-              >
+              
                 Category
-              </button>
+              
             </th>
             <th className={styles.thformname}>
-              <button
-                type="button"
-                //  onClick={() => requestSort("category")}
-                // className={`${styles.theadbtn} ${getClassNamesFor("category")}`}
-              >
+             
                 Action
-              </button>
+              
             </th>
           </tr>
         </thead>
@@ -89,7 +75,7 @@ const ProductTable = ({ data }) => {
                   className={styles.tabledata}
                   onClick={() => ProductDetails(item)}
                 >
-                  <button>Edit</button>
+                  <button className="edit">Edit</button>
                 </td>
               </tr>
             ))
@@ -110,14 +96,14 @@ const ProductTable = ({ data }) => {
           pageRangeDisplayed={2}
           marginPagesDisplayed={1}
         />
-        <div>
+        <div style={{marginTop:'5%'}}>
           <span>
             Showing {offset + 1} to {offset + PER_PAGE} of {items?.length}{" "}
             entries
           </span>
         </div>
         <Modal isOpen={isOpen} onRequestClose={closeModal}>
-          <ProductDetails />
+          <Product data={selectedProduct} closeModal={closeModal}/>
         </Modal>
       </div>
     </>

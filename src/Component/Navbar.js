@@ -13,10 +13,9 @@ const Navbar = () => {
           &#9776;
         </span>
       </div>
-      <div>close</div>
       <div>
         <div id="mySidenav" className={toogle ? "sidenav" : "close-sidenav"}>
-          <a className="closebtn" onClick={() => setToogle(!toogle)}>
+          <a className="closebtn"  onClick={() => setToogle(!toogle)}>
             &times;
           </a>
           <a>About</a>
