@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import ProductTable from "./DevTable";
 import styles from "./DataTable.module.scss";
 
@@ -8,13 +8,16 @@ const FilterData = (props) => {
   function filteration(data) {
     if (data) {
       let new_item = data.filter((item) => {
-        if (item.title.toLowerCase().includes(filteredData.toLowerCase())) {
+        if (
+          item.title.toLowerCase().includes(filteredData.toLowerCase()) ||
+          item.brand.toLowerCase().includes(filteredData.toLowerCase()) ||
+          item.category.toLowerCase().includes(filteredData.toLowerCase())
+        ) {
           return item;
         }
       });
       return new_item;
-    }
-    else{
+    } else {
       return data;
     }
   }
