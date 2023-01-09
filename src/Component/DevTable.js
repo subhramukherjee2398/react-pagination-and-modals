@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useSortableData } from "./hooks";
 import ReactPaginate from "react-paginate";
 import styles from "./DataTable.module.scss";
 import Modal from "@netojose/react-modal";

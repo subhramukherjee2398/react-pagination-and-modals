@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import ProductTable from "./DevTable";
 import styles from "./DataTable.module.scss";
 
 const FilterData = (props) => {
   const [filteredData, setFilteredData] = useState("");
-
-  /* useEffect(() => {
-    filteration(props?.data);
-  }, [filteredData]); */
 
   function filteration(data) {
     if (data) {
