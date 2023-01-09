@@ -15,15 +15,15 @@ const Product = ({ data,closeModal }) => {
           <img src={data.thumbnail} alt="product-img" />
         </div>
         <div className="product-card-details">
-          <div>Product : {data.title}</div>
-          <div>Brand : {data.brand}</div>
-          <div>Discount : {data.discountPercentage}%</div>
-          <div>Category : {data.category}</div>
-          <div>Price : {data.price}</div>
-          <div>Stock : {data.stock}</div>
+          <div className="p-name">Product : <span className="p-value">{data.title}</span></div>
+          <div className="p-name">Brand : <span className="p-value">{data.brand}</span></div>
+          <div className="p-name">Discount : <span className="p-value">{data.discountPercentage}%</span></div>
+          <div className="p-name">Category : <span className="p-value">{data.category}</span></div>
+          <div className="p-name">Price : <span className="p-value">{data.price}₹</span></div>
+          <div className="p-name">Stock : <span className="p-value">{data.stock}</span></div>
           <div>
-            <div>description</div>
-            <div>{data.description}</div>
+            <div className="p-name">description</div>
+            <div className="p-value">{data.description}</div>
           </div>
         </div>
       </div>

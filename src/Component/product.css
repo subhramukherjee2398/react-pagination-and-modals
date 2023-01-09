@@ -36,3 +36,13 @@
     margin-left: 50px;
     cursor: pointer;
   }
+  .p-name{
+    font-size: 16px;
+    font-weight: bold;
+    color: #636363;
+  }
+  .p-value{
+    font-size: 14px;
+    font-weight: bold;
+    color: #54B435;
+  }
