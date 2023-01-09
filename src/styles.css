@@ -70,18 +70,20 @@ body {
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
 }
 .header-btn {
   display: flex;
   width: 600px;
   padding: 2%;
   justify-content: space-around;
-  gap:2rem;
+  gap:1rem;
+  flex-wrap: wrap;
 }
 .hd-btn{
   background-color: green;
   padding: 0%;
-  width: 200px;
+  width: 150px;
   padding: 1.5%;
   border-radius: 7px;
   color: white;

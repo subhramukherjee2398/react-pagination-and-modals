@@ -1,23 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProductTable from "./DevTable";
 import styles from "./DataTable.module.scss";
 
-
 const FilterData = (props) => {
   const [filteredData, setFilteredData] = useState("");
- 
-  function filteration(data, value) {
-    const newarr = data.filter((item) => {
-      if (!value) return true;
-      if (
-        item.formname.toLowerCase().includes(value.toLowerCase()) ||
-        item.category.toLowerCase().includes(value.toLowerCase())
-      ) {
-        return true;
-      }
-      return false;
-    });
-    return newarr;
+
+  /* useEffect(() => {
+    filteration(props?.data);
+  }, [filteredData]); */
+
+  function filteration(data) {
+    if (data) {
+      let new_item = data.filter((item) => {
+        if (item.title.toLowerCase().includes(filteredData.toLowerCase())) {
+          return item;
+        }
+      });
+      return new_item;
+    }
+    else{
+      return data;
+    }
   }
 
   return (
@@ -31,9 +34,9 @@ const FilterData = (props) => {
           onChange={(e) => setFilteredData(e.target.value)}
         />
       </div>
-      <ProductTable data={props.data} />
+      <ProductTable data={filteration(props.data)} />
     </>
   );
-}; 
+};
 
 export default FilterData;

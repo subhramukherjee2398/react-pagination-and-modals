@@ -96,7 +96,7 @@ const ProductTable = ({ data }) => {
           pageRangeDisplayed={2}
           marginPagesDisplayed={1}
         />
-        <div style={{marginTop:'5%'}}>
+        <div style={{marginTop:'2%'}}>
           <span>
             Showing {offset + 1} to {offset + PER_PAGE} of {items?.length}{" "}
             entries
